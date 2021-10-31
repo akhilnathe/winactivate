@@ -1,4 +1,5 @@
 @echo off
+pushd "%~dp0"
 
 echo ============================================================
 echo winactivate - Easy-to-use Windows HWID Activation Script.
@@ -93,8 +94,17 @@ if not exist "%~dp0slc.dll" (
     goto exit
 )
 
+echo Patching gatherosstate.exe...
+rundll32 "%~dp0slc.dll",PatchGatherosstate
+
+if not exist "%~dp0gatherosstatemodified.exe" (
+    echo An error occurred while patching gatherosstate.exe.
+    echo.
+    goto exit
+)
+
 echo Generating GenuineTicket.xml...
-"%~dp0gatherosstate.exe"
+"%~dp0gatherosstatemodified.exe"
 
 if not exist "%~dp0GenuineTicket.xml" (
     echo GenuineTicket.xml generation failed. Please check your internet connection and try again.
