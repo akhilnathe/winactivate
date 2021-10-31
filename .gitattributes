@@ -1,0 +1,3 @@
+* text=auto
+
+winactivate.cmd text eol=crlf
