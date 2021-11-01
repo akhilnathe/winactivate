@@ -1,6 +1,6 @@
 # winactivate
 
-Easy-to-use Windows HWID Activation Script.
+Easy-to-use Windows HWID/KMS38 Activation Script.
 
 ## Usage
 
